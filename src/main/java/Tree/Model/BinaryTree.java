@@ -46,9 +46,30 @@ public class BinaryTree {
             root = stack.pop();
             list.add(root.value);
             root = root.right;
-
+        }
+        return list;
+    }
+    public List<Integer> postorderTraversal() {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) return list;
+        Stack<TreeNode> stack = new Stack<>();
+        while (root != null || !stack.empty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.right;
+            }
+            root = stack.pop();
+            list.add(root.value);
+            root = root.left;
         }
         return list;
     }
 
+    public TreeNode getRoot() {
+        return root;
+    }
+
+    public void setRoot(TreeNode root) {
+        this.root = root;
+    }
 }

@@ -1,3 +1,4 @@
+import Tree.IsValidBTree;
 import Tree.Model.BinaryTree;
 import Tree.Model.TreeNode;
 import org.junit.Test;
@@ -32,10 +33,12 @@ public class TestCases {
 
     @Test
     public void createBinaryTree(){
-        int[] testSample = {0, 9, 20, 3, 0, 15, 7};
+        int[] testSample = {2,1,3};
         BinaryTree BTree = new BinaryTree(testSample);
-        for(Integer nodeValue : BTree.inorderTraversal()){
-            System.out.println(nodeValue);
-        }
+//        for(Integer nodeValue : BTree.inorderTraversal()){
+//            System.out.println(nodeValue);
+//        }
+        IsValidBTree validator = new IsValidBTree();
+        System.out.println(validator.isValidBST(BTree.getRoot()));
     }
 }
